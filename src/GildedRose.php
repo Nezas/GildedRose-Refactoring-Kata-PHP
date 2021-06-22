@@ -16,7 +16,7 @@ final class GildedRose
         $this->items = $items;
     }
 
-    public function updateQuality(): void
+    public function updateQuality()
     {
         foreach ($this->items as $item) {
             switch ($item->name) {
