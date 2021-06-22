@@ -30,6 +30,7 @@ final class GildedRose
                     break;
                 case 'Conjured':
                     $this->updateConjured($item);
+                    break;
                 default:
                     $this->updateNormal($item);
                     break;
