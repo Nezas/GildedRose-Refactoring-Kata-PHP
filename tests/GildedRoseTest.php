@@ -279,4 +279,48 @@ class GildedRoseTest extends TestCase
         $this->assertSame(-2, $items[0]->sell_in);
         $this->assertSame(0, $items[0]->quality);
     }
+
+    public function testUpdatesConjuredItemsBeforeSellDate()
+    {
+        $items = [new Item('Conjured', 10, 5)];
+        $gildedRose = new GildedRose($items);
+
+        $gildedRose->updateQuality();
+
+        $this->assertSame(9, $items[0]->sell_in);
+        $this->assertSame(3, $items[0]->quality);
+    }
+
+    public function testUpdatesConjuredItemsOnSellDate()
+    {
+        $items = [new Item('Conjured', 0, 5)];
+        $gildedRose = new GildedRose($items);
+
+        $gildedRose->updateQuality();
+
+        $this->assertSame(-1, $items[0]->sell_in);
+        $this->assertSame(1, $items[0]->quality);
+    }
+
+    public function testUpdatesConjuredItemsAfterSellDate()
+    {
+        $items = [new Item('Conjured', -1, 5)];
+        $gildedRose = new GildedRose($items);
+
+        $gildedRose->updateQuality();
+
+        $this->assertSame(-2, $items[0]->sell_in);
+        $this->assertSame(1, $items[0]->quality);
+    }
+
+    public function testUpdatesConjuredItemsQualityEqualsTo0()
+    {
+        $items = [new Item('Conjured', 10, 0)];
+        $gildedRose = new GildedRose($items);
+
+        $gildedRose->updateQuality();
+
+        $this->assertSame(9, $items[0]->sell_in);
+        $this->assertSame(0, $items[0]->quality);
+    }
 }
