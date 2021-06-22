@@ -28,6 +28,8 @@ final class GildedRose
                     break;
                 case 'Sulfuras, Hand of Ragnaros':
                     break;
+                case 'Conjured':
+                    $this->updateConjured($item);
                 default:
                     $this->updateNormal($item);
                     break;
@@ -75,6 +77,19 @@ final class GildedRose
 
         if ($item->sell_in <= 0) {
             $item->quality -= 1;
+        }
+        if ($item->quality <= 0) {
+            $item->quality = 0;
+        }
+    }
+
+    public function updateConjured($item)
+    {
+        $item->sell_in -= 1;
+        $item->quality -= 2;
+
+        if ($item->sell_in <= 0) {
+            $item->quality -= 2;
         }
         if ($item->quality <= 0) {
             $item->quality = 0;
