@@ -1,3 +1,28 @@
+# My approach for "GildedRose Kata - PHP Version" task
+
+- Added unit tests
+- Refactored code
+
+To run my code, you need to clone this repository
+
+```sh
+git clone git@github.com:Nezas/GildedRose-Refactoring-Kata-PHP.git
+```
+
+or
+
+```shell script
+git clone https://github.com/Nezas/GildedRose-Refactoring-Kata-PHP.git
+```
+
+Install all the dependencies using composer
+
+```shell script
+composer install
+```
+
+That's it!
+
 # GildedRose Kata - PHP Version
 
 See the [top level readme](../README.md) for general information about this exercise. This is the PHP version of the
