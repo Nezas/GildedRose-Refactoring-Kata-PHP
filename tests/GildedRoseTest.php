@@ -10,10 +10,7 @@ use PHPUnit\Framework\TestCase;
 
 class GildedRoseTest extends TestCase
 {
-    /**
-     * @test
-     */
-    public function updates_normal_items_before_sell_date()
+    public function testUpdatesNormalItemsBeforeSellDate()
     {
         $items = [new Item('normal', 8, 5)];
         $gildedRose = new GildedRose($items);
@@ -24,10 +21,7 @@ class GildedRoseTest extends TestCase
         $this->assertSame(4, $items[0]->quality);
     }
 
-    /**
-     * @test
-     */
-    public function updates_normal_items_on_sell_date()
+    public function testUpdatesNormalItemsOnSellDate()
     {
         $items = [new Item('normal', 0, 5)];
         $gildedRose = new GildedRose($items);
@@ -38,10 +32,7 @@ class GildedRoseTest extends TestCase
         $this->assertSame(3, $items[0]->quality);
     }
 
-    /**
-     * @test
-     */
-    public function updates_normal_items_after_sell_date()
+    public function testUpdatesNormalItemsAfterSellDate()
     {
         $items = [new Item('normal', -10, 5)];
         $gildedRose = new GildedRose($items);
@@ -52,10 +43,7 @@ class GildedRoseTest extends TestCase
         $this->assertSame(3, $items[0]->quality);
     }
 
-    /**
-     * @test
-     */
-    public function updates_normal_items_quality_equals_to_0()
+    public function testUpdatesNormalItemsQualityEqualsTo0()
     {
         $items = [new Item('normal', 10, 0)];
         $gildedRose = new GildedRose($items);
@@ -66,10 +54,7 @@ class GildedRoseTest extends TestCase
         $this->assertSame(0, $items[0]->quality);
     }
 
-    /**
-     * @test
-     */
-    public function updates_aged_brie_items_before_sell_date()
+    public function testUpdatesAgedBrieItemsBeforeSellDate()
     {
         $items = [new Item('Aged Brie', 8, 5)];
         $gildedRose = new GildedRose($items);
@@ -80,10 +65,7 @@ class GildedRoseTest extends TestCase
         $this->assertSame(6, $items[0]->quality);
     }
 
-    /**
-     * @test
-     */
-    public function updates_aged_brie_items_before_sell_date_close_to_max_quality()
+    public function testUpdatesAgedBrieItemsBeforeSellDateCloseToMaxQuality()
     {
         $items = [new Item('Aged Brie', 8, 49)];
         $gildedRose = new GildedRose($items);
@@ -94,10 +76,7 @@ class GildedRoseTest extends TestCase
         $this->assertSame(50, $items[0]->quality);
     }
 
-    /**
-     * @test
-     */
-    public function updates_aged_brie_items_before_sell_date_max_quality()
+    public function testUpdatesAgedBrieItemsBeforeSellDateMaxQuality()
     {
         $items = [new Item('Aged Brie', 8, 50)];
         $gildedRose = new GildedRose($items);
@@ -108,10 +87,7 @@ class GildedRoseTest extends TestCase
         $this->assertSame(50, $items[0]->quality);
     }
 
-    /**
-     * @test
-     */
-    public function updates_aged_brie_items_on_sell_date()
+    public function testUpdatesAgedBrieItemsOnSellDate()
     {
         $items = [new Item('Aged Brie', 0, 5)];
         $gildedRose = new GildedRose($items);
@@ -122,10 +98,7 @@ class GildedRoseTest extends TestCase
         $this->assertSame(7, $items[0]->quality);
     }
 
-    /**
-     * @test
-     */
-    public function updates_aged_brie_items_on_sell_date_close_to_max_quality()
+    public function testUpdatesAgedBrieItemsOnSellDateCloseToMaxQuality()
     {
         $items = [new Item('Aged Brie', 0, 49)];
         $gildedRose = new GildedRose($items);
@@ -136,10 +109,7 @@ class GildedRoseTest extends TestCase
         $this->assertSame(50, $items[0]->quality);
     }
 
-    /**
-     * @test
-     */
-    public function updates_aged_brie_items_on_sell_date_max_quality()
+    public function testUpdatesAgedBrieItemsOnSellDateMaxQuality()
     {
         $items = [new Item('Aged Brie', 0, 50)];
         $gildedRose = new GildedRose($items);
@@ -150,10 +120,7 @@ class GildedRoseTest extends TestCase
         $this->assertSame(50, $items[0]->quality);
     }
 
-    /**
-     * @test
-     */
-    public function updates_aged_brie_items_after_sell_date()
+    public function testUpdatesAgedBrieItemsAfterSellDate()
     {
         $items = [new Item('Aged Brie', -4, 10)];
         $gildedRose = new GildedRose($items);
@@ -164,10 +131,7 @@ class GildedRoseTest extends TestCase
         $this->assertSame(12, $items[0]->quality);
     }
 
-    /**
-     * @test
-     */
-    public function updates_aged_brie_items_after_sell_date_close_to_max_quality()
+    public function testUpdatesAgedBrieItemsAfterSellDateCloseToMaxQuality()
     {
         $items = [new Item('Aged Brie', -4, 49)];
         $gildedRose = new GildedRose($items);
@@ -178,10 +142,7 @@ class GildedRoseTest extends TestCase
         $this->assertSame(50, $items[0]->quality);
     }
 
-    /**
-     * @test
-     */
-    public function updates_aged_brie_items_after_sell_date_max_quality()
+    public function testUpdatesAgedBrieItemsAfterSellDateMaxQuality()
     {
         $items = [new Item('Aged Brie', -4, 50)];
         $gildedRose = new GildedRose($items);
@@ -192,10 +153,7 @@ class GildedRoseTest extends TestCase
         $this->assertSame(50, $items[0]->quality);
     }
 
-    /**
-     * @test
-     */
-    public function updates_sulfuras_items_before_sell_date()
+    public function testUpdatesSulfurasItemsBeforeSellDate()
     {
         $items = [new Item('Sulfuras, Hand of Ragnaros', 5, 10)];
         $gildedRose = new GildedRose($items);
@@ -206,10 +164,7 @@ class GildedRoseTest extends TestCase
         $this->assertSame(10, $items[0]->quality);
     }
 
-    /**
-     * @test
-     */
-    public function updates_sulfuras_items_on_sell_date()
+    public function testUpdatesSulfurasItemsOnSellDate()
     {
         $items = [new Item('Sulfuras, Hand of Ragnaros', 0, 10)];
         $gildedRose = new GildedRose($items);
@@ -220,10 +175,7 @@ class GildedRoseTest extends TestCase
         $this->assertSame(10, $items[0]->quality);
     }
 
-    /**
-     * @test
-     */
-    public function updates_sulfuras_after_sell_date()
+    public function testUpdatesSulfurasAfterSellDate()
     {
         $items = [new Item('Sulfuras, Hand of Ragnaros', -5, 10)];
         $gildedRose = new GildedRose($items);
@@ -240,10 +192,7 @@ class GildedRoseTest extends TestCase
      * Quality drops to 0 after the concert
      */
 
-    /**
-     * @test
-     */
-    public function updates_backstage_pass_items_sell_date_longer_than_10_days()
+    public function testUpdatesBackstagePassItemsSellDateLongerThan10Days()
     {
         $items = [new Item('Backstage passes to a TAFKAL80ETC concert', 12, 5)];
         $gildedRose = new GildedRose($items);
@@ -254,10 +203,7 @@ class GildedRoseTest extends TestCase
         $this->assertSame(6, $items[0]->quality);
     }
 
-    /**
-     * @test
-     */
-    public function updates_backstage_pass_items_sell_date_less_or_equal_10_days()
+    public function testUpdatesBackstagePassItemsSellDateLessOrEqual10Days()
     {
         $items = [new Item('Backstage passes to a TAFKAL80ETC concert', 10, 5)];
         $gildedRose = new GildedRose($items);
@@ -268,10 +214,7 @@ class GildedRoseTest extends TestCase
         $this->assertSame(7, $items[0]->quality);
     }
 
-    /**
-     * @test
-     */
-    public function updates_backstage_pass_items_sell_date_less_or_equal_5_days()
+    public function testUpdatesBackstagePassItemsSellDateLessOrEqual5Days()
     {
         $items = [new Item('Backstage passes to a TAFKAL80ETC concert', 5, 5)];
         $gildedRose = new GildedRose($items);
@@ -282,10 +225,7 @@ class GildedRoseTest extends TestCase
         $this->assertSame(8, $items[0]->quality);
     }
 
-    /**
-     * @test
-     */
-    public function updates_backstage_pass_items_sell_date_longer_than_10_days_max_quality()
+    public function testUpdatesBackstagePassItemsSellDateLongerThan10DaysMaxQuality()
     {
         $items = [new Item('Backstage passes to a TAFKAL80ETC concert', 5, 50)];
         $gildedRose = new GildedRose($items);
@@ -296,10 +236,7 @@ class GildedRoseTest extends TestCase
         $this->assertSame(50, $items[0]->quality);
     }
 
-    /**
-     * @test
-     */
-    public function updates_backstage_pass_items_sell_date_less_or_equal_10_days_max_quality()
+    public function testUpdatesBackstagePassItemsSellDateLessOrEqual10DaysMaxQuality()
     {
         $items = [new Item('Backstage passes to a TAFKAL80ETC concert', 10, 50)];
         $gildedRose = new GildedRose($items);
@@ -310,10 +247,7 @@ class GildedRoseTest extends TestCase
         $this->assertSame(50, $items[0]->quality);
     }
 
-    /**
-     * @test
-     */
-    public function updates_backstage_pass_items_sell_date_less_or_equal_5_days_max_quality()
+    public function testUpdatesBackstagePassItemsSellDateLessOrEqual5DaysMaxQuality()
     {
         $items = [new Item('Backstage passes to a TAFKAL80ETC concert', 5, 50)];
         $gildedRose = new GildedRose($items);
@@ -324,10 +258,7 @@ class GildedRoseTest extends TestCase
         $this->assertSame(50, $items[0]->quality);
     }
 
-    /**
-     * @test
-     */
-    public function updates_backstage_pass_items_on_sell_date()
+    public function testUpdatesBackstagePassItemsOnSellDate()
     {
         $items = [new Item('Backstage passes to a TAFKAL80ETC concert', 0, 10)];
         $gildedRose = new GildedRose($items);
@@ -338,10 +269,7 @@ class GildedRoseTest extends TestCase
         $this->assertSame(0, $items[0]->quality);
     }
 
-    /**
-     * @test
-     */
-    public function updates_backstage_pass_items_after_sell_date()
+    public function testUpdatesBackstagePassItemsAfterSellDate()
     {
         $items = [new Item('Backstage passes to a TAFKAL80ETC concert', -1, 10)];
         $gildedRose = new GildedRose($items);
